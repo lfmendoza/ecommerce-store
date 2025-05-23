@@ -1,0 +1,165 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Smartphone Pro Max",
+      "price": 899.99,
+      "originalPrice": 999.99,
+      "image": "https://via.placeholder.com/300x300/007bff/ffffff?text=Phone",
+      "images": [
+        "https://via.placeholder.com/300x300/007bff/ffffff?text=Phone1",
+        "https://via.placeholder.com/300x300/28a745/ffffff?text=Phone2",
+        "https://via.placeholder.com/300x300/dc3545/ffffff?text=Phone3"
+      ],
+      "description": "El smartphone más avanzado con tecnología de última generación.",
+      "rating": 4.5,
+      "reviews": 128,
+      "category": "electronics",
+      "hasDiscount": true
+    },
+    {
+      "id": 2,
+      "name": "Auriculares Inalámbricos",
+      "price": 199.99,
+      "originalPrice": null,
+      "image": "https://via.placeholder.com/300x300/6c757d/ffffff?text=Headphones",
+      "images": [
+        "https://via.placeholder.com/300x300/6c757d/ffffff?text=Head1",
+        "https://via.placeholder.com/300x300/17a2b8/ffffff?text=Head2"
+      ],
+      "description": "Auriculares con cancelación de ruido y calidad de sonido premium.",
+      "rating": 4.2,
+      "reviews": 89,
+      "category": "electronics",
+      "hasDiscount": false
+    },
+    {
+      "id": 3,
+      "name": "Laptop Gaming",
+      "price": 1299.99,
+      "originalPrice": 1499.99,
+      "image": "https://via.placeholder.com/300x300/343a40/ffffff?text=Laptop",
+      "images": [
+        "https://via.placeholder.com/300x300/343a40/ffffff?text=Laptop1",
+        "https://via.placeholder.com/300x300/495057/ffffff?text=Laptop2"
+      ],
+      "description": "Laptop potente para gaming y trabajo profesional.",
+      "rating": 4.8,
+      "reviews": 256,
+      "category": "electronics",
+      "hasDiscount": true
+    },
+    {
+      "id": 4,
+      "name": "Cámara Digital",
+      "price": 599.99,
+      "originalPrice": null,
+      "image": "https://via.placeholder.com/300x300/fd7e14/ffffff?text=Camera",
+      "images": [
+        "https://via.placeholder.com/300x300/fd7e14/ffffff?text=Cam1",
+        "https://via.placeholder.com/300x300/e67e22/ffffff?text=Cam2"
+      ],
+      "description": "Cámara profesional para fotografía de alta calidad.",
+      "rating": 4.6,
+      "reviews": 94,
+      "category": "electronics",
+      "hasDiscount": false
+    },
+    {
+      "id": 5,
+      "name": "Tablet Ultra",
+      "price": 449.99,
+      "originalPrice": 549.99,
+      "image": "https://via.placeholder.com/300x300/8e44ad/ffffff?text=Tablet",
+      "images": [
+        "https://via.placeholder.com/300x300/8e44ad/ffffff?text=Tab1",
+        "https://via.placeholder.com/300x300/9b59b6/ffffff?text=Tab2"
+      ],
+      "description": "Tablet ligera y potente para trabajo y entretenimiento.",
+      "rating": 4.3,
+      "reviews": 167,
+      "category": "electronics",
+      "hasDiscount": true
+    },
+    {
+      "id": 6,
+      "name": "Smartwatch Sport",
+      "price": 299.99,
+      "originalPrice": null,
+      "image": "https://via.placeholder.com/300x300/27ae60/ffffff?text=Watch",
+      "images": [
+        "https://via.placeholder.com/300x300/27ae60/ffffff?text=Watch1",
+        "https://via.placeholder.com/300x300/2ecc71/ffffff?text=Watch2"
+      ],
+      "description": "Reloj inteligente para deportistas y vida activa.",
+      "rating": 4.1,
+      "reviews": 203,
+      "category": "wearables",
+      "hasDiscount": false
+    },
+    {
+      "id": 7,
+      "name": "Altavoz Bluetooth",
+      "price": 89.99,
+      "originalPrice": 119.99,
+      "image": "https://via.placeholder.com/300x300/e74c3c/ffffff?text=Speaker",
+      "images": [
+        "https://via.placeholder.com/300x300/e74c3c/ffffff?text=Speak1",
+        "https://via.placeholder.com/300x300/c0392b/ffffff?text=Speak2"
+      ],
+      "description": "Altavoz portátil con sonido envolvente y resistente al agua.",
+      "rating": 4.4,
+      "reviews": 156,
+      "category": "electronics",
+      "hasDiscount": true
+    },
+    {
+      "id": 8,
+      "name": "Teclado Mecánico",
+      "price": 129.99,
+      "originalPrice": null,
+      "image": "https://via.placeholder.com/300x300/3498db/ffffff?text=Keyboard",
+      "images": [
+        "https://via.placeholder.com/300x300/3498db/ffffff?text=Key1",
+        "https://via.placeholder.com/300x300/2980b9/ffffff?text=Key2"
+      ],
+      "description": "Teclado mecánico RGB para gaming y programación.",
+      "rating": 4.7,
+      "reviews": 89,
+      "category": "accessories",
+      "hasDiscount": false
+    },
+    {
+      "id": 9,
+      "name": "Mouse Gaming",
+      "price": 79.99,
+      "originalPrice": 99.99,
+      "image": "https://via.placeholder.com/300x300/f39c12/ffffff?text=Mouse",
+      "images": [
+        "https://via.placeholder.com/300x300/f39c12/ffffff?text=Mouse1",
+        "https://via.placeholder.com/300x300/d68910/ffffff?text=Mouse2"
+      ],
+      "description": "Mouse ergonómico de alta precisión para gaming.",
+      "rating": 4.5,
+      "reviews": 112,
+      "category": "accessories",
+      "hasDiscount": true
+    },
+    {
+      "id": 10,
+      "name": "Monitor 4K",
+      "price": 399.99,
+      "originalPrice": null,
+      "image": "https://via.placeholder.com/300x300/1abc9c/ffffff?text=Monitor",
+      "images": [
+        "https://via.placeholder.com/300x300/1abc9c/ffffff?text=Mon1",
+        "https://via.placeholder.com/300x300/16a085/ffffff?text=Mon2"
+      ],
+      "description": "Monitor 4K de 27 pulgadas con colores vibrantes.",
+      "rating": 4.6,
+      "reviews": 78,
+      "category": "electronics",
+      "hasDiscount": false
+    }
+  ]
+}
