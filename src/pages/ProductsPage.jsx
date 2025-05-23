@@ -1,6 +1,6 @@
 import React from "react";
 import ProductsTemplate from "../components/templates/ProductsTemplate/ProductsTemplate";
-import { productsData } from "../data/products.json";
+import { productsData } from "../data/products";
 
 const ProductsPage = () => {
   const handleAddToCart = (product) => {
