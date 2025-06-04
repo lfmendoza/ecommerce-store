@@ -1,7 +1,7 @@
-import React from "react";
-import Text from "../../atoms/Text/Text";
-import Button from "../../atoms/Button/Button";
-import { formatPrice } from "../../../utils/helpers";
+import React from 'react';
+import Text from '../../atoms/Text/Text';
+import Button from '../../atoms/Button/Button';
+import { formatPrice } from '../../../utils/helpers';
 
 const CartSummary = ({
   subtotal,
@@ -24,7 +24,7 @@ const CartSummary = ({
         <div className="flex justify-between">
           <Text variant="body">Envío</Text>
           <Text variant="body">
-            {shipping === 0 ? "Gratis" : formatPrice(shipping)}
+            {shipping === 0 ? 'Gratis' : formatPrice(shipping)}
           </Text>
         </div>
         <div className="border-t border-gray-300 pt-2">

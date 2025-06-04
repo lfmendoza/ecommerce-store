@@ -1,18 +1,29 @@
-import React, { useState } from "react";
-import Image from "../../atoms/Image/Image";
-import Text from "../../atoms/Text/Text";
-import Button from "../../atoms/Button/Button";
-import Icon from "../../atoms/Icon/Icon";
-import StarRating from "../../molecules/StarRating/StarRating";
-import PriceDisplay from "../../molecules/PriceDisplay/PriceDisplay";
-import QuantityControl from "../../molecules/QuantityControl/QuantityControl";
+import React, { useState } from 'react';
+import Image from '../../atoms/Image/Image';
+import Text from '../../atoms/Text/Text';
+import Button from '../../atoms/Button/Button';
+import Icon from '../../atoms/Icon/Icon';
+import StarRating from '../../molecules/StarRating/StarRating';
+import PriceDisplay from '../../molecules/PriceDisplay/PriceDisplay';
+import QuantityControl from '../../molecules/QuantityControl/QuantityControl';
+import { useCart } from '../../../contexts/CartContext';
+import { useFavorites } from '../../../contexts/FavoritesContext';
 
-const ProductDetail = ({ product, onAddToCart, onToggleFavorite }) => {
+const ProductDetail = ({ product }) => {
   const [selectedImage, setSelectedImage] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const { dispatch } = useCart();
+  const { toggleFavorite, isFavorite } = useFavorites();
 
   const handleAddToCart = () => {
-    onAddToCart?.({ ...product, quantity });
+    dispatch({
+      type: 'ADD_ITEM',
+      payload: { ...product, quantity },
+    });
+  };
+
+  const handleToggleFavorite = () => {
+    toggleFavorite(product.id);
   };
 
   return (
@@ -32,8 +43,8 @@ const ProductDetail = ({ product, onAddToCart, onToggleFavorite }) => {
                 onClick={() => setSelectedImage(index)}
                 className={`border-2 rounded-lg overflow-hidden ${
                   selectedImage === index
-                    ? "border-blue-500"
-                    : "border-gray-200"
+                    ? 'border-blue-500'
+                    : 'border-gray-200'
                 }`}
               >
                 <Image
@@ -53,7 +64,8 @@ const ProductDetail = ({ product, onAddToCart, onToggleFavorite }) => {
           <Button
             variant="ghost"
             size="small"
-            onClick={() => onToggleFavorite?.(product.id)}
+            onClick={handleToggleFavorite}
+            className={isFavorite(product.id) ? 'text-red-500' : ''}
           >
             <Icon name="heart" />
           </Button>

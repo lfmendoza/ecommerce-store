@@ -1,23 +1,19 @@
-import React from "react";
-import Header from "../../organisms/Header/Header";
-import ProductDetail from "../../organisms/ProductDetail/ProductDetail";
-import RecommendationList from "../../organisms/RecommendationList/RecommendationList";
-import Button from "../../atoms/Button/Button";
-import Icon from "../../atoms/Icon/Icon";
+import React from 'react';
+import Header from '../../organisms/Header/Header';
+import ProductDetail from '../../organisms/ProductDetail/ProductDetail';
+import RecommendationList from '../../organisms/RecommendationList/RecommendationList';
+import Button from '../../atoms/Button/Button';
+import Icon from '../../atoms/Icon/Icon';
 
 const ProductDetailTemplate = ({
   product,
   recommendations,
-  cartItemsCount,
-  onAddToCart,
-  onToggleFavorite,
-  onCartClick,
   onBackClick,
   onViewDetail,
 }) => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header cartItemsCount={cartItemsCount} onCartClick={onCartClick} />
+      <Header />
 
       <main className="max-w-6xl mx-auto">
         <div className="p-4">
@@ -31,16 +27,11 @@ const ProductDetailTemplate = ({
           </Button>
         </div>
 
-        <ProductDetail
-          product={product}
-          onAddToCart={onAddToCart}
-          onToggleFavorite={onToggleFavorite}
-        />
+        <ProductDetail product={product} />
 
         <div className="px-6">
           <RecommendationList
             products={recommendations}
-            onAddToCart={onAddToCart}
             onViewDetail={onViewDetail}
           />
         </div>

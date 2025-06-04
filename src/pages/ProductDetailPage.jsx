@@ -1,45 +1,49 @@
-import React from "react";
-import ProductDetailTemplate from "../components/templates/ProductDetailTemplate/ProductDetailTemplate";
-import { productsData } from "../data/products.json";
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import ProductDetailTemplate from '../components/templates/ProductDetailTemplate/ProductDetailTemplate';
+import { useProducts } from '../contexts/ProductContext';
 
-const ProductDetailPage = ({ productId = 1 }) => {
-  const product = productsData.products.find((p) => p.id === productId);
-  const recommendations = productsData.products
-    .filter((p) => p.id !== productId && p.category === product?.category)
-    .slice(0, 4);
+const ProductDetailPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const { products, addToViewedProducts, getRecommendations } = useProducts();
 
-  const handleAddToCart = (product) => {
-    console.log("Adding to cart:", product);
-  };
+  const productId = parseInt(id);
+  const product = products.find((p) => p.id === productId);
 
-  const handleToggleFavorite = (productId) => {
-    console.log("Toggle favorite:", productId);
-  };
+  useEffect(() => {
+    if (product) {
+      addToViewedProducts(product.id);
+    }
+  }, [product, addToViewedProducts]);
 
-  const handleCartClick = () => {
-    console.log("Go to cart");
-  };
+  const recommendations = getRecommendations(productId);
 
   const handleBackClick = () => {
-    console.log("Go back to products");
+    navigate('/');
   };
 
   const handleViewDetail = (productId) => {
-    console.log("View detail:", productId);
+    navigate(`/product/${productId}`);
   };
 
   if (!product) {
-    return <div>Producto no encontrado</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Producto no encontrado</h1>
+          <button onClick={handleBackClick} className="text-blue-600">
+            Volver a la tienda
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (
     <ProductDetailTemplate
       product={product}
       recommendations={recommendations}
-      cartItemsCount={0}
-      onAddToCart={handleAddToCart}
-      onToggleFavorite={handleToggleFavorite}
-      onCartClick={handleCartClick}
       onBackClick={handleBackClick}
       onViewDetail={handleViewDetail}
     />

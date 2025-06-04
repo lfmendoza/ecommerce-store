@@ -1,30 +1,13 @@
-import React from "react";
-import Header from "../../organisms/Header/Header";
-import ProductGrid from "../../organisms/ProductGrid/ProductGrid";
+import React from 'react';
+import Header from '../../organisms/Header/Header';
+import ProductGrid from '../../organisms/ProductGrid/ProductGrid';
 
-const ProductsTemplate = ({
-  products,
-  cartItemsCount,
-  onAddToCart,
-  onToggleFavorite,
-  onViewDetail,
-  onCartClick,
-  onSearch,
-}) => {
+const ProductsTemplate = ({ products, onViewDetail, onSearch }) => {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header
-        cartItemsCount={cartItemsCount}
-        onCartClick={onCartClick}
-        onSearch={onSearch}
-      />
+      <Header onSearch={onSearch} />
       <main>
-        <ProductGrid
-          products={products}
-          onAddToCart={onAddToCart}
-          onToggleFavorite={onToggleFavorite}
-          onViewDetail={onViewDetail}
-        />
+        <ProductGrid products={products} onViewDetail={onViewDetail} />
       </main>
     </div>
   );

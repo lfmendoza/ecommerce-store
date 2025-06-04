@@ -1,36 +1,35 @@
-import React from "react";
-import ProductsTemplate from "../components/templates/ProductsTemplate/ProductsTemplate";
-import { productsData } from "../data/products";
+import React, { useState, useMemo } from 'react';
+import ProductsTemplate from '../components/templates/ProductsTemplate/ProductsTemplate';
+import { useProducts } from '../contexts/ProductContext';
+import { useNavigate } from 'react-router-dom';
 
 const ProductsPage = () => {
-  const handleAddToCart = (product) => {
-    console.log("Adding to cart:", product);
-  };
+  const navigate = useNavigate();
+  const { products } = useProducts();
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const handleToggleFavorite = (productId) => {
-    console.log("Toggle favorite:", productId);
-  };
+  const filteredProducts = useMemo(() => {
+    if (!searchQuery) return products;
+
+    return products.filter(
+      (product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        product.category.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  }, [products, searchQuery]);
 
   const handleViewDetail = (productId) => {
-    console.log("View detail:", productId);
-  };
-
-  const handleCartClick = () => {
-    console.log("Go to cart");
+    navigate(`/product/${productId}`);
   };
 
   const handleSearch = (query) => {
-    console.log("Search:", query);
+    setSearchQuery(query);
   };
 
   return (
     <ProductsTemplate
-      products={productsData.products}
-      cartItemsCount={0}
-      onAddToCart={handleAddToCart}
-      onToggleFavorite={handleToggleFavorite}
+      products={filteredProducts}
       onViewDetail={handleViewDetail}
-      onCartClick={handleCartClick}
       onSearch={handleSearch}
     />
   );

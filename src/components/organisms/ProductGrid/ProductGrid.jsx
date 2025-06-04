@@ -1,21 +1,14 @@
-import React from "react";
-import ProductCard from "../../molecules/ProductCard/ProductCard";
+import React from 'react';
+import ProductCard from '../../molecules/ProductCard/ProductCard';
 
-const ProductGrid = ({
-  products,
-  onAddToCart,
-  onToggleFavorite,
-  onViewDetail,
-}) => {
+const ProductGrid = ({ products, onViewDetail }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-4 max-w-6xl mx-auto">
       {products.map((product) => (
         <ProductCard
           key={product.id}
           product={product}
-          onAddToCart={onAddToCart}
-          onToggleFavorite={onToggleFavorite}
-          onViewDetail={() => onViewDetail?.(product.id)}
+          onViewDetail={onViewDetail}
         />
       ))}
     </div>

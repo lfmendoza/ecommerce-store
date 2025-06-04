@@ -1,7 +1,8 @@
 export const formatPrice = (price) => {
-  return new Intl.NumberFormat("es-GT", {
-    style: "currency",
-    currency: "USD",
+  return new Intl.NumberFormat('es-GT', {
+    style: 'currency',
+    currency: 'USD',
+    currencyDisplay: 'symbol',
   }).format(price);
 };
 
@@ -11,18 +12,18 @@ export const generateStars = (rating) => {
   const hasHalfStar = rating % 1 !== 0;
 
   for (let i = 0; i < fullStars; i++) {
-    stars.push("★");
+    stars.push('★');
   }
 
   if (hasHalfStar) {
-    stars.push("☆");
+    stars.push('☆');
   }
 
   while (stars.length < 5) {
-    stars.push("☆");
+    stars.push('☆');
   }
 
-  return stars.join("");
+  return stars.join('');
 };
 
 export const calculateDiscount = (originalPrice, currentPrice) => {

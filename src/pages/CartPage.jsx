@@ -1,57 +1,48 @@
-import React, { useState } from "react";
-import CartTemplate from "../components/templates/CartTemplate/CartTemplate";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import CartTemplate from '../components/templates/CartTemplate/CartTemplate';
+import { useCart } from '../contexts/CartContext';
 
 const CartPage = () => {
-  // Datos de ejemplo para el carrito
-  const [cartItems] = useState([
-    {
-      id: 1,
-      name: "Smartphone Pro Max",
-      price: 899.99,
-      image: "https://via.placeholder.com/300x300/007bff/ffffff?text=Phone",
-      quantity: 2,
-    },
-    {
-      id: 2,
-      name: "Auriculares Inalámbricos",
-      price: 199.99,
-      image:
-        "https://via.placeholder.com/300x300/6c757d/ffffff?text=Headphones",
-      quantity: 1,
-    },
-  ]);
-
-  const subtotal = cartItems.reduce(
-    (sum, item) => sum + item.price * item.quantity,
-    0
-  );
-  const total = subtotal; // Sin impuestos ni envío por ahora
+  const navigate = useNavigate();
+  const { state, dispatch, cartTotals } = useCart();
 
   const handleUpdateQuantity = (itemId, newQuantity) => {
-    console.log("Update quantity:", itemId, newQuantity);
+    if (newQuantity <= 0) {
+      dispatch({ type: 'REMOVE_ITEM', payload: { id: itemId } });
+    } else {
+      dispatch({
+        type: 'UPDATE_QUANTITY',
+        payload: { id: itemId, quantity: newQuantity },
+      });
+    }
   };
 
   const handleRemoveItem = (itemId) => {
-    console.log("Remove item:", itemId);
+    dispatch({ type: 'REMOVE_ITEM', payload: { id: itemId } });
   };
 
   const handleClearCart = () => {
-    console.log("Clear cart");
+    dispatch({ type: 'CLEAR_CART' });
   };
 
   const handleCheckout = () => {
-    console.log("Proceed to checkout");
+    if (cartTotals.total <= 999.99) {
+      alert('¡Compra realizada con éxito!');
+      dispatch({ type: 'CLEAR_CART' });
+      navigate('/');
+    }
   };
 
   const handleContinueShopping = () => {
-    console.log("Continue shopping");
+    navigate('/');
   };
 
   return (
     <CartTemplate
-      cartItems={cartItems}
-      subtotal={subtotal}
-      total={total}
+      cartItems={state.items}
+      subtotal={cartTotals.subtotal}
+      total={cartTotals.total}
       onUpdateQuantity={handleUpdateQuantity}
       onRemoveItem={handleRemoveItem}
       onClearCart={handleClearCart}
